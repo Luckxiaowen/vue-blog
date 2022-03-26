@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wen.mapper.ArticleMapper">
+
+
+    <select id="selectArticleVo" resultType="com.wen.domain.entity.Article">
+        SELECT
+            a.id,a.title,b.category_name,a.release_date,a.watch_number,a.is_release
+        FROM
+            article as a,category as b
+        WHERE
+            a.category_id = b.id and a.del_flag = 1
+    </select>
+</mapper>
